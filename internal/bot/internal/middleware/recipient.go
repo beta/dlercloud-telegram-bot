@@ -35,6 +35,10 @@ func FilterRecipient(allowedRecipient string) func(*telebot.Update) bool {
 			return false
 		}
 
+		if len(allowedRecipient) <= 0 {
+			return true
+		}
+
 		m := update.Message
 		if m.Chat == nil {
 			log.Errorf("[Message updateID=%d] chat is nil", update.ID)
