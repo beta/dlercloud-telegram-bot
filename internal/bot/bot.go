@@ -23,9 +23,9 @@ import (
 	"fmt"
 	"time"
 
-	"dlercloud-telegarm-bot/config"
 	"dlercloud-telegarm-bot/internal/api/dler"
 	"dlercloud-telegarm-bot/internal/bot/internal/middleware"
+	"dlercloud-telegarm-bot/internal/config"
 
 	"gopkg.in/tucnak/telebot.v2"
 )

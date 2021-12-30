@@ -21,8 +21,8 @@ package main
 import (
 	"flag"
 
-	"dlercloud-telegarm-bot/config"
 	"dlercloud-telegarm-bot/internal/bot"
+	"dlercloud-telegarm-bot/internal/config"
 	"dlercloud-telegarm-bot/internal/log"
 )
 
