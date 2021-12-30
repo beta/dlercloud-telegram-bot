@@ -8,7 +8,7 @@ A Telegram bot for managing your Dler Cloud account.
 2. Fill the values into [config.toml](config.toml) and save it somewhere
 3. `./bot -c <path-to-config.toml>`
 
-# Configs
+## Configs
 
 ```toml
 [telegram]
