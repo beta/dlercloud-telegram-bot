@@ -1,0 +1,12 @@
+{
+  // Language: JSON
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
+  // Extension: Licenser
+  "licenser.projectName": "dlercloud-telegram-bot",
+  "licenser.author": "Beta Kuang <beta.kuang@gmail.com>",
+  "licenser.license": "zlib"
+}
