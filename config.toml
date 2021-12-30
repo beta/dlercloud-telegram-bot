@@ -1,0 +1,7 @@
+[telegram]
+bot-token = ""
+allowed-recipient = ""
+
+[dler-cloud]
+email = ""
+password = ""
