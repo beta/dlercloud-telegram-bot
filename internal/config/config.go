@@ -33,6 +33,14 @@ type Config struct {
 		Email    string `toml:"email"`
 		Password string `toml:"password"`
 	} `toml:"dler-cloud"`
+
+	Vultr struct {
+		Enabled   bool   `toml:"enabled"`
+		APIKey    string `toml:"api-key"`
+		Instances map[string]struct {
+			ID string `toml:"id"`
+		} `toml:"instances"`
+	} `toml:"vultr"`
 }
 
 // FromFile parse configs from file.

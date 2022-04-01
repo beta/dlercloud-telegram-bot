@@ -24,6 +24,7 @@ import (
 	"time"
 
 	"dlercloud-telegarm-bot/internal/api/dler"
+	"dlercloud-telegarm-bot/internal/api/vultr"
 	"dlercloud-telegarm-bot/internal/bot/internal/middleware"
 	"dlercloud-telegarm-bot/internal/config"
 
@@ -32,20 +33,44 @@ import (
 
 // NewBot 返回新的 bot 实例.
 func NewBot(cfg *config.Config) *Bot {
-	return &Bot{
+	bot := &Bot{
 		dler:             dler.NewClient(cfg.DlerCloud.Email, cfg.DlerCloud.Password),
+		vultrEnabled:     cfg.Vultr.Enabled,
 		telebotSettings:  telebot.Settings{Token: cfg.Telegram.BotToken},
 		allowedRecipient: cfg.Telegram.AllowedRecipient,
 	}
+
+	if cfg.Vultr.Enabled {
+		bot.vultrInstances = make([]*vultrInstance, 0, len(cfg.Vultr.Instances))
+		for name, inst := range cfg.Vultr.Instances {
+			bot.vultrInstances = append(bot.vultrInstances, &vultrInstance{
+				Name:       name,
+				InstanceID: inst.ID,
+			})
+		}
+		bot.vultr = vultr.NewClient(cfg.Vultr.APIKey)
+	}
+
+	return bot
 }
 
 // Bot.
 type Bot struct {
-	dler             *dler.Client
+	dler *dler.Client
+
+	vultrEnabled   bool
+	vultrInstances []*vultrInstance
+	vultr          *vultr.Client
+
 	telebotSettings  telebot.Settings
 	allowedRecipient string
 
 	telebot *telebot.Bot
+}
+
+type vultrInstance struct {
+	Name       string
+	InstanceID string
 }
 
 // Start 启动 bot.

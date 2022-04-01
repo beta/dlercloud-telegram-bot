@@ -5,3 +5,13 @@ allowed-recipient = ""
 [dler-cloud]
 email = ""
 password = ""
+
+[vultr]
+enabled = false
+api-key = ""
+
+#   [vultr.instances.INSTANCE_NAME_1]
+#   id = "INSTANCE_ID_1"
+
+#   [vultr.instances.INSTANCE_NAME_2]
+#   id = "INSTANCE_ID_2"

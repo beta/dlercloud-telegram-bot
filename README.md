@@ -1,6 +1,6 @@
 # Dler Cloud Telegram Bot
 
-A Telegram bot for managing your Dler Cloud account.
+A Telegram bot for querying the bandwidth usage of your Dler Cloud & Vultr account.
 
 ## Usage
 
@@ -22,6 +22,23 @@ allowed-recipient = ""
 # Your Dler Cloud account.
 email = ""
 password = ""
+
+[vultr]
+# Change to true to use Vultr
+enabled = false
+# Your Vultr API key. Enable in https://my.vultr.com/settings/#settingsapi
+api-key = ""
+
+# Uncomment the following options to add Vultr instances.
+# Change INSTANCE_NAME_* to an recognizable instance name.
+# INSTANCE_ID_* can be found in the URL of Vultr's product page.
+
+#   [vultr.instances.INSTANCE_NAME_1]
+#   id = "INSTANCE_ID_1"
+
+#   [vultr.instances.INSTANCE_NAME_2]
+#   id = "INSTANCE_ID_2"
+
 ```
 
 ## License
