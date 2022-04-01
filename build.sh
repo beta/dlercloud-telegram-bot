@@ -18,4 +18,5 @@
 
 #!/usr/bin/bash
 
-go build -o ./build/bot ./cmd/bot/bot.go
+GOOS=linux GOARCH=amd64 go build -o ./build/bot ./cmd/bot/bot.go
+
