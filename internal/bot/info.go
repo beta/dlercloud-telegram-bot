@@ -36,7 +36,7 @@ func (bot *Bot) Info(m *telebot.Message) {
 	dlerInfo, err := bot.dler.GetUserInfo(ctx)
 	if err != nil {
 		log.Errorf("failed to get user info from Dler Cloud, error: %+v", err)
-		bot.telebot.Send(m.Sender, "Opps，查询失败")
+		bot.telebot.Send(m.Chat, "Opps，查询失败")
 		return
 	}
 
@@ -44,7 +44,7 @@ func (bot *Bot) Info(m *telebot.Message) {
 		vultrInfo, err := bot.queryVultrInfo(ctx)
 		if err != nil {
 			log.Errorf("failed to get bandwidth info from Vultr, error: %+v", err)
-			bot.telebot.Send(m.Sender, "Opps，查询失败")
+			bot.telebot.Send(m.Chat, "Opps，查询失败")
 			return
 		}
 
